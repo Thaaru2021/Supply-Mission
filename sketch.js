@@ -19,7 +19,7 @@ function setup() {
 	packageSprite=createSprite(width/2, 80, 10,10);
 	packageSprite.addImage(packageIMG)
 	packageSprite.scale=0.2
-	packageSprite.visible=false;
+	
 
 	helicopterSprite=createSprite(width/2, 200, 10,10);
 	helicopterSprite.addImage(helicopterIMG)
@@ -84,9 +84,13 @@ function keypressed(){
 
 	if(keyDown("RIGHT_ARROW")){
 		helicopterSprite.x = helicopterSprite.x +5;
+		{x:5,y:0}
+		Matter.Body.translate(packageBody,translation)
 	}else 
 	if(keyDown("LEFT_ARROW")){
 		helicopterSprite.x = helicopterSprite.x -5;
+		{x:-5,y:0}
+		Matter.Body.translate(packageBody,translation)
 	}else 
 	if(keyCode === DOWN_ARROW){		
 		Matter.Body.setStatic(packageBody,false);		
